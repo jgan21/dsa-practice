@@ -7,7 +7,9 @@ var canJump = function(nums) {
 
     for(let i = 0; i < nums.length; i++){
         if (i > reachable)return false;
-        reachable = Math.max(reachable, i + nums[i])
+        if (i + nums[i] > reachable) {
+            reachable = i + nums[i]
+        }
     }
     return true;
 };
